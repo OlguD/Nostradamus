@@ -86,8 +86,9 @@ def analyze_coin(symbol):
             recomandation = "Neutral"
 
         if recomandation and recomandation != prev_signals[symbol][0] and recomandation != prev_signals[symbol][1]:
-            print(
-                f"{datetime.datetime.now()} -- {symbol} - Recomandation:[{recomandation}] - Buy:{signalss[0]}, Sell:{signalss[1]}, Neutral:{signalss[2]}")
+            print(f"{datetime.datetime.now()} -- {symbol} - Recomandation:[{recomandation}] - Buy:{signalss[0]}, Sell:{signalss[1]}, Neutral:{signalss[2]}")
+            
+            
 
         prev_signals[symbol][1] = prev_signals[symbol][0]
         prev_signals[symbol][0] = recomandation
