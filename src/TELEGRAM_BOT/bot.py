@@ -1,5 +1,5 @@
 import telebot
-from UserData import TOKEN
+from config import TOKEN
 from one_coin import analyze_coin, coins
 import time
 

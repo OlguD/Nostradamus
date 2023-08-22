@@ -1,6 +1,7 @@
 from binance.client import Client
 from config import API_KEY, API_SECRET  # API anahtarlarınızı buradan alın
 
+
 # Binance API istemcisini oluşturun
 client = Client(API_KEY, API_SECRET)
 

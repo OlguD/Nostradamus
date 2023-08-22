@@ -30,7 +30,7 @@ def oscilators(symbol):
 
     return rsi, macd, momentum
 
-
+    
 #def calculate_rsih(symbol, length):
 #    cu = 0.0
 #    cd = 0.0
@@ -113,7 +113,9 @@ def analyze_coin(symbol):
             prev_signals[0] = recomandation
             return current_output
 
-#while True:
-#    result = analyze_coin("BTCUSDT")
-#    if result is not None:
-#        print(result)
+
+# Telegram botunu çalıştırmadan önce aşağıdaki satırları yorum satırı yap !!! s
+while True:
+    result = analyze_coin("BTCUSDT")
+    if result is not None:
+        print(result)
