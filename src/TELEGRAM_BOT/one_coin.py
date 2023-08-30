@@ -8,7 +8,7 @@ def ma_signal(symbol):
             symbol=symbol,
             exchange="BINANCE",
             screener="crypto",
-            interval=Interval.INTERVAL_1_MINUTE
+            interval=Interval.INTERVAL_5_MINUTES
     )
 
     #print(handler.get_analysis().moving_averages)
@@ -22,7 +22,7 @@ def oscilators(symbol):
         symbol=symbol,
         exchange="BINANCE",
         screener="crypto",
-        interval=Interval.INTERVAL_1_MINUTE
+        interval=Interval.INTERVAL_5_MINUTES
     )
     rsi = handler.get_analysis().oscillators["COMPUTE"]["RSI"]
     macd = handler.get_analysis().oscillators["COMPUTE"]["MACD"]
@@ -108,14 +108,14 @@ def analyze_coin(symbol):
 
         if recomandation and recomandation != prev_signals[0] and recomandation != prev_signals[1]:
             current_output = f"{datetime.datetime.now()} -- {symbol} - Recomandation:[{recomandation}] - Buy:{signalss[0]}, Sell:{signalss[1]}, Neutral:{signalss[2]}"
-            
+            return recomandation
+
             prev_signals[1] = prev_signals[0]
             prev_signals[0] = recomandation
-            return current_output
 
 
 # Telegram botunu çalıştırmadan önce aşağıdaki satırları yorum satırı yap !!! s
-while True:
-    result = analyze_coin("BTCUSDT")
-    if result is not None:
-        print(result)
+#while True:
+#    result = analyze_coin("BTCUSDT")
+#    if result is not None:
+#        print(result)
