@@ -1,6 +1,6 @@
 import telebot
 from config import TOKEN
-from one_coin import analyze_coin, coins
+from BotClass.bot import *
 import time
 
 bot = telebot.TeleBot(TOKEN, parse_mode=None)
@@ -56,17 +56,18 @@ def help_message(message):
 def handle_message(message):
     user_input = message.text
     chat_id = message.chat.id
+    onecoin = OneCoin(user_input)
 
     if user_input == "/stop":
         bot.send_message(chat_id, "Analiz sonlandırıldı.")
         return
 
     if user_input in coins:
-        coin = coins[user_input]
+        coin = onecoin
         while True:
-            response = analyze_coin(coin)
-            if response is not None:
-                bot.send_message(chat_id, response)
+            result = onecoin.analyze()
+            if result is not None:
+                bot.send_message(chat_id, result)
             #time.sleep(60)  # 60 saniye (1 dakika) bekleme süresi
     else:
         bot.send_message(chat_id, "Geçersiz coin adı. Lütfen geçerli bir coin adı girin.")
