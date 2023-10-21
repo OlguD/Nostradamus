@@ -1,5 +1,6 @@
 # TradeBot
-Gives Buy/Sell signals in real time, also it has telegram bot.
+Gives Buy/Sell signal and predicts the feature prices using LSTM.
+Works perfectly Python 3.10.9 and 3.11
 
 ### Usage
 1. For activating virtual environment macOS: `source venv/bin/activate`
