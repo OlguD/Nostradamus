@@ -2,11 +2,16 @@ import matplotlib.pyplot as plt
 import sys
 sys.path.insert(1, '../')
 from model.create_model import *
+from model.get_code import userArg
+
+user_argv = userArg()
+ticker = user_argv.code
+
 
 def predict_future():
     future_days = 18
     # Veriyi indir
-    downData = downloadData(ticker='ALGYO.IS', start='2020-03-11', end="2023-10-01")
+    downData = downloadData(ticker=ticker, start='2020-03-11', end="2023-10-01")
     data = downData.download()
 
     # Özellikleri ekle
@@ -31,7 +36,7 @@ def predict_future():
     #last_date = date.today()
 
     # FİX HERE !!!!!!!!!!!!!!!!!!!!!!!!
-    last_date = pd.to_datetime(2023, 1, 10)
+    last_date = pd.to_datetime("2023-10-01")
     # FİX HERE !!!!!!!!!!!!!!!!!!!!!!!!
     
     future_dates = [last_date + pd.DateOffset(days=i) for i in range(1, future_days + 1)]
@@ -43,7 +48,6 @@ def real_vals():
     data = downData.download()
 
     data = data.filter(["Adj Close"])
-    print(data)
     return data
 
 def plot_datas():
