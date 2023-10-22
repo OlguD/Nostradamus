@@ -62,8 +62,8 @@ class preprocess:
         try:
             scaled_data = self.scaler.fit_transform(dataset)
             
-        except Exception as e:
-            print(f"Error while scaling data: {e}")
+        except:
+            print('Check you internet connection')
             # Hata durumunda işlemi durdurabilir veya başka bir işlem uygulayabilirsiniz.
             # return None, None, None, None
 
@@ -123,13 +123,13 @@ class createModel:
         model = self.compile(x_train, y_train)
 
         early_stopping = EarlyStopping(monitor='loss', patience=3, verbose=1)
-        checkpoint = ModelCheckpoint('/tmp', 
-                                      save_weights_only=False, # Save all the model if false, else only saves the weights
-                                      monitor='mape',
-                                      mode='min',
-                                      save_best_only=True)
+#        checkpoint = ModelCheckpoint('/tmp/best_model.keras', 
+#                                      save_weights_only=False, # Save all the model if false, else only saves the weights
+#                                      monitor='mape',
+#                                      mode='min',
+#                                      save_best_only=True)
 
-        model.fit(x=x_train, y=y_train, batch_size=64, epochs=2, shuffle=False, callbacks=[early_stopping, checkpoint])
+        model.fit(x=x_train, y=y_train, batch_size=32, epochs=10, shuffle=False, callbacks=[early_stopping])
         return model
 
 # Gelecekteki fiyatları tahmin etmek için sınıf
