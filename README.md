@@ -1,22 +1,21 @@
-# TradeBot
+# TradeBot 
+`version 0.1.0`
+
 Gives Buy/Sell signal and predicts the feature prices using LSTM.
 Works perfectly Python 3.10.9 and 3.11
 
 ### Usage
 1. For activating virtual environment macOS: `source venv/bin/activate`
+2. For activating virtual environment Windows: `. venv/bin/activate`
 2. `pip install -r requirements`
-3. Then you are inside 
-4. For getting all the coin signals, you need to simply run `main.py` file
-5. But if you want to get only one coin signal you need to run `TELEGRAM_BOT/one_coin.py`
-6. If you want to run the telegram bot, you need to comment out the last 3 columns in one_coin.py
-7. For deactivating virtual environment: `deactivate`
+3. For getting future price forecasting `cd model` `python create_model <stock_code>` 
+4. For getting buy/sell signals `cd src/BotClass` and at the end of the code there is a usage of classes 
+5. For deactivating virtual environment: `deactivate`
 
-Example of output: 
-2023-08-23 00:10:47.098476 -- BTCUSDT - Recomandation:[Sell] - Buy:1, Sell:3, Neutral:1
+### Example of LSTM model
+![LSTM Forecasting](https://github.com/OlguD/Nostradamus/blob/main/model/stock_model.png?raw=true)
 
-### Development Process
-* Program must be tested in `BACTEST/backtest.py`, should be tested by creating a simulation environment according to the signals given by the program, for example, a user balance of 1000 TL, and the profit / loss situation should be tested during the time the user runs the program 
-* Then binance bot must be developed
-* Program should be run in the VPS server for running 24/7
-* Users can be start the program via Telegram.
-
+### Future Version:
+* Machine Learning models
+* Backtest
+* Optimize create_model file
