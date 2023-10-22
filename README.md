@@ -19,3 +19,5 @@ Works perfectly Python 3.10.9 and 3.11
 * Machine Learning models
 * Backtest
 * Optimize create_model file
+
+*Contact with developer - olgudegirmenci34@gmail.com*
