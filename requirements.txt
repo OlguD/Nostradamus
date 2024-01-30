@@ -48,7 +48,7 @@ pandas==2.1.1
 pandas-ta==0.3.14b0
 peewee==3.17.0
 pi==0.1.2
-Pillow==10.1.0
+Pillow==10.2.0
 protobuf==4.24.4
 pyasn1==0.5.0
 pyasn1-modules==0.3.0
